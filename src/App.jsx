@@ -5,7 +5,6 @@ import TaskList from "./components/TaskList";
 import Footer from "./components/Footer";
 
 function App() {
-  // Load saved tasks from localStorage
   const [tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem("tasks");
     return saved ? JSON.parse(saved) : [];
@@ -13,22 +12,18 @@ function App() {
 
   const [showCompleted, setShowCompleted] = useState(true);
 
-  // Save tasks to localStorage when updated
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  // Add a new task
   const addTask = (task) => {
     setTasks([...tasks, task]);
   };
 
-  // Delete a task
   const deleteTask = (id) => {
     setTasks(tasks.filter((t) => t.id !== id));
   };
 
-  // Toggle complete/incomplete
   const toggleComplete = (id) => {
     setTasks(
       tasks.map((t) =>
@@ -41,23 +36,25 @@ function App() {
     <div>
       <Header />
       <div className="container">
-        {/* ✅ My Tasks heading added */}
+        {/* Section Title */}
         <h2 style={{ marginBottom: "1rem" }}>My Tasks</h2>
 
-        {/* Task input form */}
+        {/* Add Task Form */}
         <TaskForm addTask={addTask} />
 
-        {/* Show completed checkbox */}
-        <label style={{ display: "block", marginBottom: "1rem" }}>
-          <input
-            type="checkbox"
-            checked={showCompleted}
-            onChange={() => setShowCompleted(!showCompleted)}
-          />{" "}
-          Show Completed
-        </label>
+        {/* ✅ Show Completed Checkbox Section */}
+        <div className="checkbox-section">
+          <label>
+            <input
+              type="checkbox"
+              checked={showCompleted}
+              onChange={() => setShowCompleted(!showCompleted)}
+            />
+            Show Completed Tasks
+          </label>
+        </div>
 
-        {/* List of tasks */}
+        {/* Task List */}
         <TaskList
           tasks={tasks}
           showCompleted={showCompleted}

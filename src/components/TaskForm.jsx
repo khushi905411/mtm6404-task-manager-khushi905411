@@ -19,13 +19,18 @@ const TaskForm = ({ addTask }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="task-form">
+      <h3>🧾 Add a New Task</h3>
+
+      <label>Task Name</label>
       <input
         type="text"
-        placeholder="Enter new task"
+        placeholder="Enter task"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
+
+      <label>Priority</label>
       <select
         value={priority}
         onChange={(e) => setPriority(e.target.value)}
@@ -34,7 +39,8 @@ const TaskForm = ({ addTask }) => {
         <option>Medium</option>
         <option>High</option>
       </select>
-      <button className="add" type="submit">Add</button>
+
+      <button className="btn add" type="submit">➕ Add Task</button>
     </form>
   );
 };

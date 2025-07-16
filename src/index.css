@@ -1,3 +1,4 @@
+/* Base */
 body {
   font-family: Arial, sans-serif;
   background-color: #FCEF91;
@@ -5,6 +6,7 @@ body {
   padding: 0;
 }
 
+/* Header */
 header {
   background-color: #E6521F;
   color: white;
@@ -13,58 +15,87 @@ header {
   border-radius: 0 0 10px 10px;
 }
 
+/* Container */
 .container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 2rem auto;
-  padding: 1rem;
+  padding: 2rem;
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 
-form {
+/* Form Section */
+.task-form {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
 }
 
-input, select {
-  flex: 1;
+.task-form input,
+.task-form select {
   padding: 0.5rem;
-  border-radius: 4px;
+  border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-button {
+/* Buttons */
+.btn {
   padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
+  border-radius: 8px;
   font-weight: bold;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s;
+  margin-left: 0.5rem;
 }
 
-button.add {
+.btn.add {
+  border: 2px solid green;
+  color: green;
+  background: transparent;
+}
+
+.btn.add:hover {
   background-color: green;
   color: white;
 }
 
-button.delete {
+.btn.delete {
+  border: 2px solid #EA2F14;
+  color: #EA2F14;
+  background: transparent;
+}
+
+.btn.delete:hover {
   background-color: #EA2F14;
   color: white;
 }
 
-button.toggle {
+.btn.toggle {
+  border: 2px solid royalblue;
+  color: royalblue;
+  background: transparent;
+}
+
+.btn.toggle:hover {
   background-color: royalblue;
   color: white;
 }
 
-.task-item {
+/* Task Card */
+.task-card {
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-left: 5px solid #FB9E3A;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
-  background-color: #f5f5f5;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 6px;
+  align-items: flex-start;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .completed {
@@ -72,8 +103,34 @@ button.toggle {
   color: gray;
 }
 
+/* Checkbox Section */
+.checkbox-section {
+  margin-bottom: 1.5rem;
+}
+
+/* Priority Tags */
+.priority {
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.priority.low {
+  background-color: #b4b4b4;
+}
+
+.priority.medium {
+  background-color: #FB9E3A;
+}
+
+.priority.high {
+  background-color: #EA2F14;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
   color: gray;
 }
