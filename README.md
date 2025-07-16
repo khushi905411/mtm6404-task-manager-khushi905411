@@ -4,7 +4,10 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 👩‍💻 About Me
 
-Name: Khushi Student ID: 90541136043 Course: MTM6404 – Web Applications 4 College: Algonquin College
+Name: Khushi
+Student ID: 90541136043 
+Course: MTM6404 – Web Applications 4 
+College: Algonquin College
 
 🗂️ Task Manager
 Welcome to my Task Manager app! This project was created as part of my coursework to practice building React applications using Vite.
@@ -13,6 +16,7 @@ Welcome to my Task Manager app! This project was created as part of my coursewor
 React – for building the user interface
 Vite – for fast development and bundling
 CSS – for styling the components
+
 📁 Project Structure
 src/ ├── components/ │ ├── Header.jsx │ ├── Footer.jsx │ ├── TaskForm.jsx │ └── TaskList.jsx ├── App.jsx ├── index.css └── main.jsx
 
