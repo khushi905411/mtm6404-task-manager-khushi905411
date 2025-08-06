@@ -1,90 +1,76 @@
-# React + Vite
-# Task Manager App
+Task Manager Web Application
+A modern, responsive Task Manager web app built with React, Firebase Firestore, and React Router. It provides users the ability to manage multiple task lists with tasks prioritized and persisted in Firestore, including offline support.
 
-A React-based Task Manager web application with Firestore integration for persistent data storage. This app allows users to create multiple task lists, add tasks with priorities, mark tasks complete/incomplete, and delete tasks and lists. The app supports offline persistence using Firebase Firestore and features responsive design.
+Features
+Multiple task lists management with create, update, and delete functionality
 
----
+Task items with priority levels (High, Medium, Low)
 
-## Features
+Mark tasks as complete/incomplete and toggle visibility of completed tasks
 
-- Create, read, update, and delete (CRUD) task lists and tasks
-- Tasks have priority levels (Low, Medium, High)
-- Mark tasks as complete or incomplete
-- Show/hide completed tasks toggle
-- Persistent storage using Firebase Firestore
-- Offline data persistence enabled
-- Responsive UI with custom styling
-- React Router navigation between lists
-- Context API for state management
+Persistent data storage with Firebase Firestore and offline data persistence
 
----
+Responsive design optimized for desktop and mobile
 
-## Tech Stack
+Navigation with React Router and centralized state management using Context API
 
-- React (with Hooks and Context API)
-- Firebase Firestore
-- React Router
-- Vite (build tool)
-- CSS (custom styling)
+Technology Stack
+React (Hooks, Context API)
 
----
+Firebase Firestore (Realtime Database with offline persistence)
 
-## Getting Started
+React Router v6 (Client-side routing)
 
-### Prerequisites
+Vite (Development and build tool)
 
-- Node.js and npm installed
-- Firebase account and project set up
+CSS3 (Custom styling)
 
-### Setup
-
-1. Clone the repository
-
-   ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+Clone the repository
+git clone https://github.com/your-username/your-repo.git
 
 Install dependencies
 npm install
 
-Create a Firebase project and Firestore database (in test mode for development)
+Setup Firebase
 
-Copy your Firebase config from the Firebase console and create a src/firebase.js file:
+Create a Firebase project and Firestore database in your Firebase console
 
-js
-Copy
-Edit
-// src/firebase.js
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+Copy your Firebase config credentials
 
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-};
+Create src/firebase.js with your Firebase config (see sample below)
 
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-Start the development server
+Run the development server
 
+npm run dev
+
+Usage
+Add new task lists on the homepage
+
+Navigate into each list to add, update, and delete tasks
+
+Use priority dropdown to set task importance
+
+Mark tasks complete and toggle visibility
+
+Data persists across sessions and devices
+
+Contact
+Khushi Anand
+Email: khushianand083@gmail.com
+GitHub: khushi905411
+LinkedIn: khushi-anand
+
+
+
+Folder Structure
 bash
 Copy
 Edit
-npm run dev
-Open http://localhost:5173 in your browser to see the app.
-
-Deployment
-This project can be deployed to Netlify:
-
-Push your code to a GitHub repository.
-
-Go to Netlify and create a new site from Git.
-
-Choose your repository.
-
-Set the build command to:
-npm run build
+src/
+ ├─ components/       # Reusable components (Navbar, Footer, etc.)
+ ├─ context/          # React Context for task state
+ ├─ pages/            # Page components (ListOverview, TaskListPage)
+ ├─ services/         # Firestore interaction functions
+ ├─ firebase.js       # Firebase config and initialization
+ ├─ main.jsx          # App entry point
+ └─ index.css         # Global CSS styles
