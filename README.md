@@ -1,7 +1,9 @@
 Task Manager Web Application
+
 A modern, responsive Task Manager web app built with React, Firebase Firestore, and React Router. It provides users the ability to manage multiple task lists with tasks prioritized and persisted in Firestore, including offline support.
 
 Features
+
 Multiple task lists management with create, update, and delete functionality
 
 Task items with priority levels (High, Medium, Low)
