@@ -1,29 +1,47 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import {
+  collection,
+  onSnapshot,
+  addDoc,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
+import { db } from "../firebase";
 
 export const TaskContext = createContext();
 
-export const TaskProvider = ({ children }) => {
-  const [lists, setLists] = useState(() => {
-    const saved = localStorage.getItem("lists");
-    return saved ? JSON.parse(saved) : [];
-  });
+export function useTasks() {
+  return useContext(TaskContext);
+}
+
+export function TaskProvider({ children }) {
+  const [lists, setLists] = useState([]);
+  const listsCollectionRef = collection(db, "lists");
 
   useEffect(() => {
-    localStorage.setItem("lists", JSON.stringify(lists));
-  }, [lists]);
+    const unsubscribe = onSnapshot(listsCollectionRef, (snapshot) => {
+      const listsData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setLists(listsData);
+    });
+    return unsubscribe;
+  }, []);
 
-  const addList = (name) => {
-    setLists([...lists, { id: Date.now(), name, tasks: [] }]);
+  const addList = async (name) => {
+    await addDoc(listsCollectionRef, { name, tasks: [] });
   };
 
-  const deleteList = (id) => {
-    setLists(lists.filter((list) => list.id !== id));
+  const deleteList = async (id) => {
+    const listDoc = doc(db, "lists", id);
+    await deleteDoc(listDoc);
   };
 
-  const updateTasks = (listId, tasks) => {
-    setLists(lists.map((list) =>
-      list.id === listId ? { ...list, tasks } : list
-    ));
+  const updateTasks = async (listId, tasks) => {
+    const listDoc = doc(db, "lists", listId);
+    await updateDoc(listDoc, { tasks });
   };
 
   return (
@@ -31,4 +49,4 @@ export const TaskProvider = ({ children }) => {
       {children}
     </TaskContext.Provider>
   );
-};
+}
